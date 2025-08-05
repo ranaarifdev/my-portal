@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Rana Arif</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366') no-repeat center center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brightness-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      z-index: 5;
+    }
+
+    #brightnessSlider {
+      width: 200px;
+      margin-left: 10px;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 1); /* fully dark */
+      transition: background-color 0.5s ease;
+      z-index: 1;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0b5ed7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #094aad;
+    }
+
+    #error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brightness-container">
+    <label for="brightnessSlider">🔆 Brightness</label>
+    <input type="range" id="brightnessSlider" min="0" max="100" value="0">
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="login-box" id="loginBox">
+    <h2>Login - Rana Arif</h2>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+    <div id="error"></div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('brightnessSlider');
+    const overlay = document.getElementById('overlay');
+    const loginBox = document.getElementById('loginBox');
+
+    // Show/hide login box based on brightness
+    slider.addEventListener('input', function () {
+      const value = parseInt(this.value);
+      const brightness = value / 100;
+      overlay.style.backgroundColor = `rgba(0, 0, 0, ${1 - brightness})`;
+
+      if (value > 50) {
+        loginBox.style.opacity = '1';
+        loginBox.style.pointerEvents = 'auto';
+      } else {
+        loginBox.style.opacity = '0';
+        loginBox.style.pointerEvents = 'none';
+      }
+    });
+
+    // Login function
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const error = document.getElementById('error');
+
+      if (username === 'Arif123' && password === 'Arif123') {
+        error.style.color = 'green';
+        error.textContent = 'Login successful!';
+        setTimeout(() => {
+          window.location.href = 'dashboard.html'; // next page
+        }, 1000);
+      } else {
+        error.style.color = 'red';
+        error.textContent = 'Incorrect username or password';
+      }
+    }
+  </script>
+
+</body>
+</html>

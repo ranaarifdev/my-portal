@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Rana Arif</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      padding: 30px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 36px;
+    }
+
+    .profile-box {
+      background-color: #ffffffaa;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-box h2 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .profile-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .folders {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .folder {
+      width: 200px;
+      height: 150px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      padding-top: 50px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .folder:hover {
+      transform: scale(1.05);
+      background-color: #d4ebf2;
+    }
+
+    .files {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .folder:active .files {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Rana Arif's Dashboard</h1>
+  </header>
+
+  <div class="profile-box">
+    <h2>Edit Your Profile</h2>
+    <input type="text" placeholder="Name" value="Rana Arif">
+    <input type="text" placeholder="Phone" value="0300xxxxxxx">
+    <input type="text" placeholder="Roll Number" value="RA-001">
+    <input type="submit" value="Save Profile">
+  </div>
+
+  <div class="folders">
+    <div class="folder">
+      Result
+      <div class="files">
+        📄 result1.pdf<br>
+        📄 midterm.pdf
+      </div>
+    </div>
+    <div class="folder">
+      Timetable
+      <div class="files">
+        📄 spring_schedule.pdf<br>
+        📄 exam_timetable.docx
+      </div>
+    </div>
+    <div class="folder">
+      Notes
+      <div class="files">
+        📄 chapter1_notes.pdf<br>
+        📄 ppt_unit2.pptx
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
